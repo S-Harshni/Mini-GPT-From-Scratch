@@ -127,6 +127,9 @@ def main() -> None:
         "attention": {"tokens": [tok.decode([i]) for i in s_ids], "weights": attention},
         "merges": tok.merges,
     }
+    ablations = ROOT / "results" / "ablations.json"            # written by ablate.py; kept on the page across retrains
+    if ablations.exists():
+        data["ablations"] = json.loads(ablations.read_text())
     (ROOT / "docs" / "data.json").write_text(json.dumps(data, separators=(",", ":")))
     print(json.dumps({k: data[k] for k in ("parameters", "training", "corpus", "best", "baselines")}, indent=1))
     for s in samples:

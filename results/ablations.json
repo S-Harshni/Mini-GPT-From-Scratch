@@ -1,0 +1,40 @@
+{
+ "steps": 1500,
+ "variants": [
+  {
+   "variant": "Full model (4 layers, 4 heads)",
+   "parameters": 940800,
+   "val_loss": 4.0221,
+   "perplexity": 55.82,
+   "seconds": 532
+  },
+  {
+   "variant": "No position embeddings",
+   "parameters": 940800,
+   "val_loss": 4.1544,
+   "perplexity": 63.71,
+   "seconds": 837
+  },
+  {
+   "variant": "One attention head",
+   "parameters": 940800,
+   "val_loss": 4.0141,
+   "perplexity": 55.38,
+   "seconds": 887
+  },
+  {
+   "variant": "One layer",
+   "parameters": 345984,
+   "val_loss": 4.0616,
+   "perplexity": 58.06,
+   "seconds": 90
+  },
+  {
+   "variant": "Context of 16 tokens",
+   "parameters": 926464,
+   "val_loss": 4.4278,
+   "perplexity": 83.75,
+   "seconds": 50
+  }
+ ]
+}

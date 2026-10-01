@@ -96,3 +96,12 @@ def test_generation_is_reproducible_and_greedy_is_deterministic():
     assert torch.equal(generate(model, start, 20, 0.8, generator=g(1)), generate(model, start, 20, 0.8, generator=g(1)))
     assert torch.equal(generate(model, start, 20, temperature=0), generate(model, start, 20, temperature=0))
     assert generate(model, start, 30, 1.0, top_p=0.9, generator=g(2)).shape == (1, 31)   # runs past the context window
+
+
+def test_position_embeddings_are_what_makes_word_order_visible():
+    torch.manual_seed(0)
+    forward, backward = torch.tensor([[5, 9, 7, 9]]), torch.tensor([[7, 9, 5, 9]])       # same tokens before the last one, other order
+    for use_positions, same in ((False, True), (True, False)):
+        model = GPT(Config(vocab_size=300, context=16, layers=1, heads=1, width=32, dropout=0.0, use_positions=use_positions)).eval()
+        a, b = model(forward)[0][0, -1], model(backward)[0][0, -1]
+        assert torch.allclose(a, b, atol=1e-5) == same

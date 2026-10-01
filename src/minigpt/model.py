@@ -15,6 +15,7 @@ class Config:
     heads: int = 4
     width: int = 128
     dropout: float = 0.1
+    use_positions: bool = True     # switched off only in the ablation
 
 
 class CausalSelfAttention(nn.Module):
@@ -73,7 +74,10 @@ class GPT(nn.Module):
 
     def forward(self, ids: torch.Tensor, targets: torch.Tensor | None = None):
         t = ids.size(1)
-        x = self.drop(self.tokens(ids) + self.positions(torch.arange(t, device=ids.device)))
+        x = self.tokens(ids)
+        if self.cfg.use_positions:
+            x = x + self.positions(torch.arange(t, device=ids.device))
+        x = self.drop(x)
         for block in self.blocks:
             x = block(x)
         logits = self.head(self.norm(x))
