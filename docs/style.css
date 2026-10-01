@@ -147,7 +147,7 @@ textarea { width: 100%; min-height: 70px; font: inherit; color: var(--ink); back
 .tokens span:nth-child(even) { background: var(--wash); color: var(--ink); }
 .sample { white-space: pre-wrap; font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink2); border-top: 1px solid var(--grid); padding: 10px 0; }
 .sample b { display: block; font: 600 13px system-ui, sans-serif; color: var(--ink); margin-bottom: 4px; }
-.att { border-collapse: separate; border-spacing: 1px; font: 11px ui-monospace, Menlo, monospace; }
+.att { width: auto; border-collapse: separate; border-spacing: 1px; font: 11px ui-monospace, Menlo, monospace; }
 .att th { border: 0; padding: 1px 4px; font-weight: 400; color: var(--ink2); white-space: pre; text-align: right; }
 .att thead th { text-align: center; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 1px; }
 .att td { border: 0; width: 18px; height: 18px; padding: 0; border-radius: 2px; }

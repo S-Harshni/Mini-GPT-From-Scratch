@@ -15,3 +15,45 @@ tokenizer: 1024 tokens, 2.64 characters per token, 58s
 {'step': 3250, 'train': 3.069218933582306, 'val': 3.7672686159610747} 1113s
 {'step': 3500, 'train': 3.0306939363479612, 'val': 3.7597813308238983} 1214s
 {'step': 3750, 'train': 3.0026865541934966, 'val': 3.749580901861191} 1345s
+{'step': 4000, 'train': 2.9829851269721983, 'val': 3.7415618002414703} 1510s
+{'step': 4250, 'train': 2.965686136484146, 'val': 3.736380875110626} 1654s
+{'step': 4500, 'train': 2.956954461336136, 'val': 3.7397822737693787} 1878s
+{'step': 4750, 'train': 2.9526672780513765, 'val': 3.7338037550449372} 2051s
+{'step': 5000, 'train': 2.9522366285324098, 'val': 3.7338595390319824} 2184s
+{
+ "parameters": 940800,
+ "training": {
+  "steps": 5000,
+  "batch": 32,
+  "seconds": 2184,
+  "learning_rate": 0.001,
+  "device": "cpu"
+ },
+ "corpus": {
+  "name": "Tiny Shakespeare",
+  "characters": 1115394,
+  "tokens": 422094,
+  "characters_per_token": 2.643,
+  "validation_tokens": 44937
+ },
+ "best": {
+  "step": 4750,
+  "val_loss": 3.7338,
+  "perplexity": 41.84
+ },
+ "baselines": {
+  "unigram": {
+   "loss": 6.128,
+   "perplexity": 458.5
+  },
+  "bigram": {
+   "loss": 4.8753,
+   "perplexity": 131.02
+  }
+ }
+}
+Greedy (temperature 0) 0.3758 'ROMEO:\nI have been accused to bed.\n\nKING RICHARD III:\nStay, I will not believe the window.\n\nQUEEN ELIZABETH:\nAh, my lord'
+Temperature 0.5 0.8188 'ROMEO::\nI would not stay the dole: but if I do not dare\nI do beseech you, my lord; and I have age,\nTo take the last ghos'
+Temperature 0.8, top-p 0.9 0.9356 'ROMEO::\nI would not stay the dole faith of your suit;\nThese bleeds with such a subjects or a woman,\nAnd grief inft my hu'
+Temperature 1.0 0.9839 'ROMEO:: heaven no man stir\nTo do meet the queen from him.\n\nFirst Watchman:\nAy, but he does found thee, and\nand in the au'
+Temperature 1.5 0.9866 'ROMEO:: heaven no man stir\nTo do his faire queen from him.\n\nFirst Murderen:\nAble kind Master, and\ned in the aury crown b'
