@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+.DS_Store
+data/raw/
+*.duckdb
+*.duckdb.wal
+data/lakehouse/
+out/
